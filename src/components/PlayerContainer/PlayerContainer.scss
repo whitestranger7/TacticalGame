@@ -1,5 +1,6 @@
 .player__container {
     display: flex;
+    flex-direction: column;
     width: 20%;
     height: 100vh;
     justify-content: center;

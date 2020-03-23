@@ -1,7 +1,6 @@
 import React from 'react';
 import './UnitsContainer.scss';
 import UnitBlock from '../UnitBlock/UnitBlock';
-// import UnitBlock from '../UnitBlock/UnitBlock';
 
 const UnitsContainer = () => {
     const dummyUnits = [
@@ -31,6 +30,7 @@ const UnitsContainer = () => {
                         type={el}
                         damage={50}
                         initiative={50}
+                        hp={100}
                     />
                 );
             })}

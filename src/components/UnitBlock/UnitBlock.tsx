@@ -10,13 +10,15 @@ const UnitBlock = (props: any) => {
                 </div>
                 <div className='unit__stats'>
                     <ul>
-                        <li>{props.type}</li>
-                        <li>{props.damage}</li>
-                        <li>{props.initiative}</li>
+                        <li>Type: {props.type}</li>
+                        <li>Damage: {props.damage}</li>
+                        <li>Initiative: {props.initiative}</li>
                     </ul>
                 </div>
             </div>
-            <div className='unit__hp'></div>
+            <div className='unit__hp'>
+                <h4>HP: {props.hp}</h4>
+            </div>
         </div>
     );
 };
