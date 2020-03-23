@@ -23,10 +23,6 @@ export default class Unit {
         );
     };
 
-    defend() {
-        console.log('Unit is defending');
-    };
-
     action() {
         return this.actionStrategy;
     };
