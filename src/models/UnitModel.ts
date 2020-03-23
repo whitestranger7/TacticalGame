@@ -6,7 +6,7 @@ export default class Unit {
         private readonly initiative: number,
         private readonly damage: number,
         private readonly image: string,
-        private actionStrategy: boolean
+        private actionStrategy: boolean,
     ) {
         this.type = type;
         this.name = name;
@@ -15,15 +15,19 @@ export default class Unit {
         this.damage = damage;
         this.image = image;
         this.actionStrategy = actionStrategy;
-    }
+    };
 
     getInfo() {
         console.log(
             `${this.name} with ${this.type} type. Now it's have parameters: ${this.health}, ${this.initiative}, ${this.damage}`
         );
-    }
+    };
+
+    defend() {
+        console.log('Unit is defending');
+    };
 
     action() {
         return this.actionStrategy;
-    }
+    };
 }
