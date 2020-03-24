@@ -1,9 +1,8 @@
 export default class Player {
+    static count = 1;
     constructor(
         private readonly name: String,
-        private readonly units: Array<Object>,
     ){
         this.name = name;
-        this.units = units;
     };
 };
