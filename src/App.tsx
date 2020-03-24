@@ -3,6 +3,8 @@ import Board from './models/Board';
 import Player from './models/Player';
 import { Skeleton, Centaur, Bandit, ElfArcher, SkeletonMage, Archimage, Monk, Sirena } from './models/Units';
 
+import './App.scss';
+
 function App() {
 
     const availableUnits = [Skeleton, Centaur, Bandit, ElfArcher, SkeletonMage, Archimage, Monk, Sirena];
