@@ -1,17 +1,11 @@
+import Player from './Player';
+
 export default class Board {
     constructor(
-        private units: Array<any>,
-    ){
-        this.units = units;
+        public player1: Player,
+        public player2: Player,
+    ) {
+        this.player1 = player1;
+        this.player2 = player2;
     }
-
-    logBoardInfo() {
-        console.log(this.units);
-    };
-
-    unitsGotDamage(units: Array<number>, damage: number) {
-        for(let i of units) {
-            this.units[i].takeDamage(damage);
-        }
-    };
-};
+}

@@ -5,12 +5,14 @@ export default class Unit {
         protected readonly initiative: number,
         protected readonly damage: number,
         protected readonly image: string,
+        protected action: boolean
     ) {
         this.name = name;
         this.health = health;
         this.initiative = initiative;
         this.damage = damage;
         this.image = image;
+        this.action = action;
     };
 
     getInfo() {
@@ -22,6 +24,4 @@ export default class Unit {
     takeDamage(damage: number) {
         this.health -= damage;
     };
-
-    
 }

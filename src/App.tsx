@@ -15,10 +15,14 @@ function App() {
         units.push(instance);
     };
 
-    const board = new Board(units);
-    const player_1 = new Player('Player 1');
+    const player1 = new Player('Player 1', units.slice(0, 6));
+    const player2 = new Player('Player 2', units.slice(6, 12));
+    const board = new Board(player1, player2);
 
-    board.logBoardInfo();
+    
+
+    board.player1.logUnits();
+    board.player2.logUnits();
 
     return <div className='App'></div>;
 }
