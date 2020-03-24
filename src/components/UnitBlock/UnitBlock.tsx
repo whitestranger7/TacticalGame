@@ -6,15 +6,11 @@ const UnitBlock = (props: any) => {
         <div className='unit__block'>
             <div className='unit__info'>
                 <div className='unit__logo'>
-                    <img src={props.img} alt={props.alt}/>
+                    <img src={props.img} alt={props.alt} />
                 </div>
-                <div className='unit__stats'>
-                    <ul>
-                        <li>Type: {props.type}</li>
-                        <li>Damage: {props.damage}</li>
-                        <li>Initiative: {props.initiative}</li>
-                    </ul>
-                </div>
+            </div>
+            <div className='unit__type'>
+                <h4>{props.type.toUpperCase()}</h4>
             </div>
             <div className='unit__hp'>
                 <h4>HP: {props.hp}</h4>

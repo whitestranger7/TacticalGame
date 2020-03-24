@@ -28,9 +28,7 @@ const UnitsContainer = () => {
                         }
                         alt={'skeleton'}
                         type={el}
-                        damage={50}
-                        initiative={50}
-                        hp={100}
+                        hp={50}
                     />
                 );
             })}
