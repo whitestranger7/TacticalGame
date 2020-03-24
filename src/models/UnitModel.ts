@@ -6,7 +6,7 @@ export default class Unit {
         private readonly initiative: number,
         private readonly damage: number,
         private readonly image: string,
-        private actionStrategy: boolean,
+        private actionStrategy: any,
     ) {
         this.type = type;
         this.name = name;
@@ -24,6 +24,6 @@ export default class Unit {
     };
 
     action() {
-        return this.actionStrategy;
+        return this.actionStrategy.action();
     };
 }
