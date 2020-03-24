@@ -19,7 +19,7 @@ export default class Unit {
 
     getInfo() {
         console.log(
-            `${this.name} with ${this.type} type. Now it's have parameters: ${this.health}, ${this.initiative}, ${this.damage}`
+            `${this.name} with ${this.type} type. Current parameters: ${this.health}, ${this.initiative}, ${this.damage}`
         );
     };
 
