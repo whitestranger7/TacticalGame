@@ -1,34 +1,20 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import './UnitsContainer.scss';
 import UnitBlock from '../UnitBlock/UnitBlock';
 
-const UnitsContainer = () => {
-    const dummyUnits = [
-        'skeleton',
-        'mage',
-        'skeleton',
-        'mage',
-        'mage',
-        'mage',
-        'mage',
-        'mage',
-        'mage',
-        'mage',
-        'mage',
-        'mage'
-    ];
-
+const UnitsContainer = ({ units }:any) => {
     return (
         <div className='units__container'>
-            {dummyUnits.map(el => {
+            {units.map((el: any, index: any) => {
                 return (
                     <UnitBlock
-                        img={
-                            'https://images.unsplash.com/photo-1530210124550-912dc1381cb8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80'
-                        }
-                        alt={'skeleton'}
-                        type={el}
-                        hp={50}
+                        key={index}
+                        img={el.image}
+                        alt={el.name}
+                        name={el.name}
+                        hp={el.hp}
                     />
                 );
             })}
@@ -36,4 +22,10 @@ const UnitsContainer = () => {
     );
 };
 
-export default UnitsContainer;
+const mapStateToProps = (state: any) => {
+    return {
+        units: state.board.board
+    }
+};
+
+export default connect(mapStateToProps)(UnitsContainer);

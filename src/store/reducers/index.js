@@ -1,4 +1,4 @@
 import { combineReducers } from 'redux';
-import players from './players';
+import board from './board';
 
-export default combineReducers({ players });
+export default combineReducers({ board });

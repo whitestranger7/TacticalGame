@@ -10,7 +10,7 @@ const UnitBlock = (props: any) => {
                 </div>
             </div>
             <div className='unit__type'>
-                <h4>{props.type.toUpperCase()}</h4>
+                <h4>{props.name.toUpperCase()}</h4>
             </div>
             <div className='unit__hp'>
                 <h4>HP: {props.hp}</h4>

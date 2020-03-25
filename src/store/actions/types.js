@@ -1,0 +1,1 @@
+export const BOARD_INIT = 'BOARD_INIT';
