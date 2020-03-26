@@ -1,6 +1,10 @@
 import UnitModel from '../UnitModel';
+import healBehavior from '../../behaviors/types/healBehavior';
 
 export default class HealUnit extends UnitModel {
+
+    actionBehavior: object;
+
     constructor(
         protected readonly id: number,
         protected readonly name: string,
@@ -10,6 +14,6 @@ export default class HealUnit extends UnitModel {
         protected readonly image: string
     ) {
         super(id, name, hp, initiative, image);
-        this.heal = heal;
+        this.actionBehavior = new healBehavior(heal, 1);
     }
 };
