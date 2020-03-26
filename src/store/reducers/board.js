@@ -1,7 +1,8 @@
 import { BOARD_INIT } from '../actions/types';
 
 const initialState = {
-    board: []
+    board: [],
+    order: [],
 };
 
 export default function(state = initialState, action) {
@@ -10,7 +11,8 @@ export default function(state = initialState, action) {
     switch(type) {
         case BOARD_INIT:
             return{
-                board: payload
+                board: payload.board,
+                order: payload.order,
             }
         default:
             return state;

@@ -4,8 +4,9 @@ import MagicUnit from './UnitTypes/MagicUnit';
 import HealUnit from './UnitTypes/HealUnit';
 import ParalyzeUnit from './UnitTypes/ParalyzeUnit';
 
-export const Skeleton = () => {
+export const Skeleton = (id: number) => {
     return new MeleeUnit(
+        id,
         'Skeleton',
         100,
         25,
@@ -14,8 +15,9 @@ export const Skeleton = () => {
     );
 };
 
-export const Centaur = () => {
+export const Centaur = (id: number) => {
     return new MeleeUnit(
+        id,
         'Centaur',
         150,
         50,
@@ -24,8 +26,9 @@ export const Centaur = () => {
     );
 };
 
-export const Bandit = () => {
+export const Bandit = (id: number) => {
     return new RangeUnit(
+        id,
         'Bandit',
         45,
         30,
@@ -34,8 +37,9 @@ export const Bandit = () => {
     );
 };
 
-export const ElfArcher = () => {
+export const ElfArcher = (id: number) => {
     return new RangeUnit(
+        id,
         'Elf Archer',
         90,
         40,
@@ -44,8 +48,9 @@ export const ElfArcher = () => {
     );
 };
 
-export const SkeletonMage = () => {
+export const SkeletonMage = (id: number) => {
     return new MagicUnit(
+        id,
         'Skeleton Mage',
         50,
         20,
@@ -54,8 +59,9 @@ export const SkeletonMage = () => {
     );
 };
 
-export const Archimage = () => {
+export const Archimage = (id: number) => {
     return new MagicUnit(
+        id,
         'Archimage',
         90,
         40,
@@ -64,8 +70,9 @@ export const Archimage = () => {
     );
 };
 
-export const Monk = () => {
+export const Monk = (id: number) => {
     return new HealUnit(
+        id,
         'Monk',
         70,
         40,
@@ -74,8 +81,9 @@ export const Monk = () => {
     );
 };
 
-export const Sirena = () => {
+export const Sirena = (id: number) => {
     return new ParalyzeUnit(
+        id,
         'Sirena',
         80,
         20,

@@ -12,7 +12,7 @@ export default class Board {
         private units: unitTypes[],
         private team1: unitTypes[],
         private team2: unitTypes[],
-        private order = units.sort(function (unit1, unit2) {
+        private order = Array.from(units).sort(function (unit1, unit2) {
             if(unit1.initiativeGetter > unit2.initiativeGetter) return -1;
             return 1;
         })

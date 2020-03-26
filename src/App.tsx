@@ -11,15 +11,13 @@ import Board from './models/Board/BoardInstance';
 const App = ({ loadBoard }: any) => {
 
     useEffect(() => {
-        loadBoard(Board.getUnits);
-        console.log(Board.getOrder);
+        loadBoard(Board.getUnits, Board.getOrder);
     });
 
 
     return <div className='App'>
-        <PlayerContainer name={'Player 1'} />
+        <PlayerContainer />
         <UnitsContainer />
-        <PlayerContainer name={'Player 2'} />
     </div>;
 }
 

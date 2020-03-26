@@ -1,0 +1,10 @@
+.order__units--wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: 8%;
+};
+
+.order__units--wrapper:not(:last-child) {
+    border-bottom: 1px black solid;
+}

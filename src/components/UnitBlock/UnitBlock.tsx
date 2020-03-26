@@ -2,9 +2,23 @@ import React from 'react';
 import './UnitBlock.scss';
 
 const UnitBlock = (props: any) => {
+
+    let styles = undefined;
+    if(props.team === 1) {        
+        styles = {
+            backgroundColor: 'rgb(161, 161, 243)'
+        }
+    }
+    if(props.team === 2) {
+        styles = {
+            backgroundColor: 'rgb(203, 228, 92)'
+        }
+    }
+
     return (
-        <div className='unit__block'>
+        <div className='unit__block' style={styles}>
             <div className='unit__info'>
+                <div className='unit__index'>{props.index}</div>
                 <div className='unit__logo'>
                     <img src={props.img} alt={props.alt} />
                 </div>
