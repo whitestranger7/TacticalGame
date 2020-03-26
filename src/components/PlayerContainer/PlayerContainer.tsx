@@ -5,7 +5,7 @@ import UnitOrder from './UnitOrder/UnitOrder';
 
 import Board from '../../models/Board/BoardInstance';
 
-const PlayerContainer = (props: any) => {
+const PlayerContainer = () => {
 
     return (
         <div className='player__container'>
@@ -15,7 +15,7 @@ const PlayerContainer = (props: any) => {
             <div className='order__container'>
                 {Board.getOrder.map((el, index) => {
                     let team = null;
-                    el.getId <= 5 ? team = 1 : team = 2
+                    el.getId <= 5 ? team = 1 : team = 2;
                     return <UnitOrder key={el.getId} name={el.getName} id={el.getId} team={team} />
                 })}
             </div>

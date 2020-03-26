@@ -1,5 +1,5 @@
 import UnitModel from '../UnitModel';
-import healBehavior from '../../behaviors/types/healBehavior';
+import healBehavior from '../../behaviors/actionTypes/healBehavior';
 
 export default class HealUnit extends UnitModel {
 

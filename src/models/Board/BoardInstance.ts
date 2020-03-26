@@ -19,4 +19,6 @@ for (let i = 0; i < 12; i++) {
     );
 }
 
-export default new Board(units, units.slice(0, 6), units.slice(6, 12));
+const board = new Board(units, units.slice(0, 6), units.slice(6, 12));
+
+export default board;

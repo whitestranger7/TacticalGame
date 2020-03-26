@@ -1,4 +1,4 @@
-import singleAttackBehavior from '../../behaviors/types/singleAttackBehavior';
+import singleAttackBehavior from '../../behaviors/actionTypes/singleAttackBehavior';
 import UnitModel from '../UnitModel';
 
 export default class MeleeUnit extends UnitModel {
@@ -11,9 +11,10 @@ export default class MeleeUnit extends UnitModel {
         protected readonly hp: number,
         protected readonly damage: number,
         protected readonly initiative: number,
+        protected readonly targets: number[],
         protected readonly image: string
     ) {
         super(id, name, hp, initiative, image);
-        this.actionBehavior = new singleAttackBehavior(damage, 1)
+        this.actionBehavior = new singleAttackBehavior(damage, targets);
     }
 };

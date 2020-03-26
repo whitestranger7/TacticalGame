@@ -6,13 +6,20 @@ const UnitBlock = (props: any) => {
     let styles = undefined;
     if(props.team === 1) {        
         styles = {
-            backgroundColor: 'rgb(161, 161, 243)'
+            backgroundColor: 'rgb(161, 161, 243)',
+            border: ''
+        }
+    }else {
+        styles = {
+            backgroundColor: 'rgb(203, 228, 92)',
+            border: ''
         }
     }
-    if(props.team === 2) {
-        styles = {
-            backgroundColor: 'rgb(203, 228, 92)'
-        }
+    if(props.currentTarget) {
+        styles.border = '8px solid red';
+    }
+    if(props.currentUnit) {
+        styles.border = '8px solid green';
     }
 
     return (

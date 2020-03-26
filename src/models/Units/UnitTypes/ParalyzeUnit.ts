@@ -1,5 +1,5 @@
 import UnitModel from '../UnitModel';
-import paralyzeBehavior from '../../behaviors/types/paralyzeBehavior';
+import paralyzeBehavior from '../../behaviors/actionTypes/paralyzeBehavior';
 
 export default class ParalyzeUnit extends UnitModel {
 

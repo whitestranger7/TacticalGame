@@ -1,3 +1,4 @@
-export default interface IAttackBehavior {
-    getTargets(): number | number[];
+import BoardModel from '../Board/BoardModel';
+
+export default interface IActionBehavior {
 };

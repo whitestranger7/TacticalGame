@@ -1,5 +1,5 @@
 import UnitModel from '../UnitModel';
-import splashAttackBehavior from '../../behaviors/types/splashAttackBehavior';
+import splashAttackBehavior from '../../behaviors/actionTypes/splashAttackBehavior';
 
 export default class MagicUnit extends UnitModel {
 
