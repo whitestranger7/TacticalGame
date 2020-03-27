@@ -12,8 +12,8 @@ const UnitsContainer = ({ units, curUnit }:any) => {
                 index <= 5 ? team = 1 : team = 2;
                 let currentUnit = null;
                 let currentTarget = null;
-                curUnit.id === index ? currentUnit = true : currentUnit = false;
-                curUnit.targets.indexOf(index) !== -1 ? currentTarget = true : currentTarget = false
+                // curUnit.id === index ? currentUnit = true : currentUnit = false;
+                // curUnit.targets.indexOf(index) !== -1 ? currentTarget = true : currentTarget = false
                 return (
                     <UnitBlock
                         key={index}
@@ -23,8 +23,8 @@ const UnitsContainer = ({ units, curUnit }:any) => {
                         name={el.name}
                         hp={el.hp}
                         team={team}
-                        currentUnit={currentUnit}
-                        currentTarget={currentTarget}
+                        // currentUnit={currentUnit}
+                        // currentTarget={currentTarget}
                     />
                 );
             })}

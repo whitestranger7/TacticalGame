@@ -14,6 +14,8 @@ const App = ({ loadBoard }: any) => {
         loadBoard(Board.getUnits, Board.getOrder);
     });
 
+    console.log(Board.getOrder[0].actionBehavior.targetBehavior.getTargets());
+
     return <div className='App'>
         <PlayerContainer />
         <UnitsContainer />

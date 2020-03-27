@@ -1,7 +1,7 @@
 import MeleeTargetUnit from '../targetsBehavior/MeleeTargetUnit';
 import IActionBehavior from '../IActionBehavior';
 
-export default class SingleAttackBehavior implements IActionBehavior {
+export default class MeleeAttackBehavior implements IActionBehavior {
     
     targetBehavior: MeleeTargetUnit
 

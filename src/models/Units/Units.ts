@@ -11,7 +11,6 @@ export const Skeleton = (id: number) => {
         100,
         25,
         50,
-        [6,7],
         'https://media.istockphoto.com/vectors/cartoon-skeleton-pointing-sign-vector-id928810044'
     );
 };
@@ -23,7 +22,6 @@ export const Centaur = (id: number) => {
         150,
         50,
         50,
-        [5,6],
         'https://previews.123rf.com/images/krisdog/krisdog1801/krisdog180100234/93547278-sagittarius-centaur-sign.jpg'
     );
 };
@@ -35,7 +33,6 @@ export const Bandit = (id: number) => {
         45,
         30,
         60,
-        [10,11],
         'https://cdn.personage.ua/images/thumbnails/950/950/detailed/1/banditskaya-maska-chernaya-16810.jpg'
     );
 };
@@ -47,7 +44,6 @@ export const ElfArcher = (id: number) => {
         90,
         40,
         60,
-        [9],
         'https://www.brickizimo-toys.com/3406-large_default/mirkwood-elf-.jpg'
     );
 };

@@ -1,5 +1,5 @@
 import UnitModel from '../UnitModel';
-import RangeAttackBehavior from '../../behaviors/actionTypes/singleAttackBehavior';
+import RangeAttackBehavior from '../../behaviors/actionTypes/rangeAttackBehavior';
 
 export default class RangeUnit extends UnitModel {
 
@@ -11,7 +11,6 @@ export default class RangeUnit extends UnitModel {
         public hp: number,
         protected readonly damage: number,
         protected readonly initiative: number,
-        protected readonly targets: number[],
         protected readonly image: string
     ) {
         super(id, name, hp, initiative, image);
