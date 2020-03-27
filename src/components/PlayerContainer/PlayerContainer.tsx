@@ -1,16 +1,17 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { doAction } from '../../store/actions/board';
 
 import './PlayerContainer.scss';
 import UnitOrder from './UnitOrder/UnitOrder';
 
 import Board from '../../models/Board/BoardInstance';
 
-const PlayerContainer = () => {
-
+const PlayerContainer = ({ doAction }: any) => {
     return (
         <div className='player__container'>
             <div className='btn__wrapper'>
-                <button>Defend</button>
+                <button onClick={doAction} >Defend</button>
             </div>
             <div className='order__container'>
                 {Board.getOrder.map((el, index) => {
@@ -23,4 +24,4 @@ const PlayerContainer = () => {
     );
 };
 
-export default PlayerContainer;
+export default connect(null, { doAction })(PlayerContainer);

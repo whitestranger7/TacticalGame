@@ -5,9 +5,6 @@ import './UnitsContainer.scss';
 import UnitBlock from '../UnitBlock/UnitBlock';
 
 const UnitsContainer = ({ units, curUnit }:any) => {
-
-    console.log(curUnit);
-
     return (
         <div className='units__container'>
             {units.map((el: any, index: any) => {

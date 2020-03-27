@@ -14,7 +14,6 @@ const App = ({ loadBoard }: any) => {
         loadBoard(Board.getUnits, Board.getOrder);
     });
 
-
     return <div className='App'>
         <PlayerContainer />
         <UnitsContainer />

@@ -2,7 +2,7 @@ export default class UnitModel {
     constructor(
         protected readonly id: number,
         protected readonly name: string,
-        protected readonly hp: number,
+        public hp: number,
         protected readonly initiative: number,
         protected readonly image: string
     ) {
@@ -22,6 +22,6 @@ export default class UnitModel {
     };
 
     get initiativeGetter() {
-        return this.initiative
+        return this.initiative;
     };
 };

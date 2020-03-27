@@ -1,21 +1,21 @@
 import UnitModel from '../UnitModel';
-import singleAttackBehavior from '../../behaviors/actionTypes/singleAttackBehavior';
+import RangeAttackBehavior from '../../behaviors/actionTypes/singleAttackBehavior';
 
 export default class RangeUnit extends UnitModel {
 
-    actionBehavior: object;
+    actionBehavior: RangeAttackBehavior;
 
     constructor(
         protected readonly id: number,
         protected readonly name: string,
-        protected readonly hp: number,
+        public hp: number,
         protected readonly damage: number,
         protected readonly initiative: number,
         protected readonly targets: number[],
         protected readonly image: string
     ) {
         super(id, name, hp, initiative, image);
-        this.actionBehavior = new singleAttackBehavior(damage, targets);
+        this.actionBehavior = new RangeAttackBehavior(damage, id);
     }
 
     

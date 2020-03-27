@@ -1,19 +1,19 @@
 import UnitModel from '../UnitModel';
-import healBehavior from '../../behaviors/actionTypes/healBehavior';
+import HealBehavior from '../../behaviors/actionTypes/healBehavior';
 
 export default class HealUnit extends UnitModel {
 
-    actionBehavior: object;
+    actionBehavior: HealBehavior;
 
     constructor(
         protected readonly id: number,
         protected readonly name: string,
-        protected readonly hp: number,
+        public hp: number,
         protected readonly heal: number,
         protected readonly initiative: number,
         protected readonly image: string
     ) {
         super(id, name, hp, initiative, image);
-        this.actionBehavior = new healBehavior(heal, 1);
+        this.actionBehavior = new HealBehavior(heal, id);
     }
 };

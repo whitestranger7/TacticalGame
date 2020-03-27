@@ -1,19 +1,19 @@
 import UnitModel from '../UnitModel';
-import splashAttackBehavior from '../../behaviors/actionTypes/splashAttackBehavior';
+import SplashAttackBehavior from '../../behaviors/actionTypes/splashAttackBehavior';
 
 export default class MagicUnit extends UnitModel {
 
-    actionBehavior: object;
+    actionBehavior: SplashAttackBehavior;
 
     constructor(
         protected readonly id: number,
         protected readonly name: string,
-        protected readonly hp: number,
+        public hp: number,
         protected readonly damage: number,
         protected readonly initiative: number,
         protected readonly image: string
     ) {
         super(id, name, hp, initiative, image);
-        this.actionBehavior = new splashAttackBehavior(damage, [1]);
+        this.actionBehavior = new SplashAttackBehavior(damage, id);
     }
 };

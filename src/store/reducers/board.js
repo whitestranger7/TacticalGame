@@ -1,4 +1,4 @@
-import { BOARD_INIT } from '../actions/types';
+import { BOARD_INIT, ACTION } from '../actions/types';
 
 const initialState = {
     board: [],
@@ -10,9 +10,15 @@ export default function(state = initialState, action) {
 
     switch(type) {
         case BOARD_INIT:
-            return{
+            return {
                 board: payload.board,
                 order: payload.order,
+            }
+        case ACTION:
+            const newOrder = state.order.slice(1, state.order.length);
+            return {
+                ...state,
+                order: newOrder
             }
         default:
             return state;

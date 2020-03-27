@@ -1,20 +1,20 @@
-import singleAttackBehavior from '../../behaviors/actionTypes/singleAttackBehavior';
+import SingleAttackBehavior from '../../behaviors/actionTypes/singleAttackBehavior';
 import UnitModel from '../UnitModel';
 
 export default class MeleeUnit extends UnitModel {
 
-    actionBehavior: object;
+    actionBehavior: SingleAttackBehavior;
 
     constructor(
         protected readonly id: number,
         protected readonly name: string,
-        protected readonly hp: number,
+        public hp: number,
         protected readonly damage: number,
         protected readonly initiative: number,
         protected readonly targets: number[],
         protected readonly image: string
     ) {
         super(id, name, hp, initiative, image);
-        this.actionBehavior = new singleAttackBehavior(damage, targets);
+        this.actionBehavior = new SingleAttackBehavior(damage, id);
     }
 };

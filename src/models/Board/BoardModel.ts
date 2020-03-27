@@ -31,4 +31,8 @@ export default class Board {
         return this.units;
     };
 
+    unitTakeDamage(unitIndex: number, damage: number) {
+        this.units[unitIndex].hp -= damage;
+    };
+
 };

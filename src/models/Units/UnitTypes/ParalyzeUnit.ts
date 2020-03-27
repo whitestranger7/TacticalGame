@@ -1,18 +1,18 @@
 import UnitModel from '../UnitModel';
-import paralyzeBehavior from '../../behaviors/actionTypes/paralyzeBehavior';
+import ParalyzeBehavior from '../../behaviors/actionTypes/paralyzeBehavior';
 
 export default class ParalyzeUnit extends UnitModel {
 
-    actionBehavior: object;
+    actionBehavior: ParalyzeBehavior;
 
     constructor(
         protected readonly id: number,
         protected readonly name: string,
-        protected readonly hp: number,
+        public hp: number,
         protected readonly initiative: number,
         protected readonly image: string
     ) {
         super(id, name, hp, initiative, image);
-        this.actionBehavior = new paralyzeBehavior(1);
+        this.actionBehavior = new ParalyzeBehavior(id);
     }
 };
