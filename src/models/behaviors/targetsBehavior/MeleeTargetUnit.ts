@@ -1,5 +1,5 @@
 import ITargetBehavior from "../ITargetBehavior";
-import board from "../../Board/BoardInstance";
+import Board from "../../Board/BoardInstance";
 
 export default class MeleeTargetUnit implements ITargetBehavior {
     constructor(public id: number) {
@@ -7,53 +7,28 @@ export default class MeleeTargetUnit implements ITargetBehavior {
     };
 
     getTargets() {
-        if(this.id > 2 && this.id <= 5) {
-            if(board.getUnits[6].hp <= 0 && board.getUnits[7].hp <= 0 && board.getUnits[8].hp <= 0){
-                if(this.id === 3) {
-                    return [9, 10]
+        const start = Board.getCols * (Board.getRows / 2) - (Board.getCols);
+        const end = start + (Board.getCols * 2) - 1;
+        if(this.id >= start && this.id <= end){
+            if(this.id <= (start + Board.getCols - 1)){
+                if(this.id === start) {
+                    return [this.id+Board.getCols, this.id+Board.getCols+1];
                 }
-                if(this.id === 4) {
-                    return [9, 10, 11]
+                if(this.id === (start + Board.getCols - 1)) {
+                    return [this.id+Board.getCols-1, this.id+Board.getCols];
                 }
-                if(this.id === 5) {
-                    return [10, 11]
-                }
+                return [this.id+Board.getCols-1, this.id+Board.getCols, this.id+Board.getCols+1];
             }else {
-                if(this.id === 3) {
-                    return [6, 7]
+                if(this.id === end){
+                    return [this.id-Board.getCols-1, this.id-Board.getCols];
                 }
-                if(this.id === 4) {
-                    return [6, 7, 8]
+                if(this.id === (end-Board.getCols+1)) {
+                    return [this.id-Board.getCols, this.id-Board.getCols+1];
                 }
-                if(this.id === 5) {
-                    return [7, 8]
-                }
+                return [this.id-Board.getCols-1, this.id-Board.getCols, this.id-Board.getCols+1];
             }
         }
-        if(this.id >= 6 && this.id <= 8) {
-            if(board.getUnits[3].hp <= 0 && board.getUnits[4].hp <= 0 && board.getUnits[5].hp <= 0){
-                if(this.id === 6) {
-                    return [0, 1]
-                }
-                if(this.id === 7) {
-                    return [0, 1, 2]
-                }
-                if(this.id === 8){
-                    return [2, 3]
-                }
-            }else {
-                if(this.id === 6) {
-                    return [3, 4]
-                }
-                if(this.id === 7) {
-                    return [3, 4, 5]
-                }
-                if(this.id === 8) {
-                    return [4, 5]
-                }
-            }
-        }
-        return null;
+        return [];
     }
 
 };

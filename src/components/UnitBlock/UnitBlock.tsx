@@ -7,16 +7,19 @@ const UnitBlock = (props: any) => {
     if(props.team === 1) {        
         styles = {
             backgroundColor: 'rgb(161, 161, 243)',
-            border: ''
+            border: '',
+            cursor: ''
         }
     }else {
         styles = {
             backgroundColor: 'rgb(203, 228, 92)',
-            border: ''
+            border: '',
+            cursor: ''
         }
     }
     if(props.currentTarget) {
         styles.border = '8px solid red';
+        styles.cursor = 'pointer';
     }
     if(props.currentUnit) {
         styles.border = '8px solid green';

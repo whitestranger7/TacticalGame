@@ -4,7 +4,7 @@ import MagicUnit from './UnitTypes/MagicUnit';
 import HealUnit from './UnitTypes/HealUnit';
 import ParalyzeUnit from './UnitTypes/ParalyzeUnit';
 
-export const Skeleton = (id: number) => {
+const Skeleton = (id: number) => {
     return new MeleeUnit(
         id,
         'Skeleton',
@@ -15,7 +15,7 @@ export const Skeleton = (id: number) => {
     );
 };
 
-export const Centaur = (id: number) => {
+const Centaur = (id: number) => {
     return new MeleeUnit(
         id,
         'Centaur',
@@ -26,7 +26,7 @@ export const Centaur = (id: number) => {
     );
 };
 
-export const Bandit = (id: number) => {
+const Bandit = (id: number) => {
     return new RangeUnit(
         id,
         'Bandit',
@@ -37,7 +37,7 @@ export const Bandit = (id: number) => {
     );
 };
 
-export const ElfArcher = (id: number) => {
+const ElfArcher = (id: number) => {
     return new RangeUnit(
         id,
         'Elf Archer',
@@ -48,7 +48,7 @@ export const ElfArcher = (id: number) => {
     );
 };
 
-export const SkeletonMage = (id: number) => {
+const SkeletonMage = (id: number) => {
     return new MagicUnit(
         id,
         'Skeleton Mage',
@@ -59,7 +59,7 @@ export const SkeletonMage = (id: number) => {
     );
 };
 
-export const Archimage = (id: number) => {
+const Archimage = (id: number) => {
     return new MagicUnit(
         id,
         'Archimage',
@@ -70,7 +70,7 @@ export const Archimage = (id: number) => {
     );
 };
 
-export const Monk = (id: number) => {
+const Monk = (id: number) => {
     return new HealUnit(
         id,
         'Monk',
@@ -81,7 +81,7 @@ export const Monk = (id: number) => {
     );
 };
 
-export const Sirena = (id: number) => {
+const Sirena = (id: number) => {
     return new ParalyzeUnit(
         id,
         'Sirena',
@@ -90,3 +90,5 @@ export const Sirena = (id: number) => {
         'https://vignette.wikia.nocookie.net/defenseoftheancients/images/8/84/Naga_Siren.gif/revision/latest/top-crop/width/360/height/450?cb=20110819195002'
     );
 };
+
+export const units = [Skeleton, Centaur, Bandit, ElfArcher, SkeletonMage, Archimage, Monk, Sirena];

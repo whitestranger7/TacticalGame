@@ -1,20 +1,10 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { loadBoard } from './store/actions/board';
+import React from 'react';
 
 import PlayerContainer from './components/PlayerContainer/PlayerContainer';
 import UnitsContainer from './components/UnitsContainer/UnitsContainer';
 import './App.scss';
 
-import Board from './models/Board/BoardInstance'; 
-
-const App = ({ loadBoard }: any) => {
-
-    useEffect(() => {
-        loadBoard(Board.getUnits, Board.getOrder);
-    });
-
-    console.log(Board.getOrder[0].actionBehavior.targetBehavior.getTargets());
+const App = () => {
 
     return <div className='App'>
         <PlayerContainer />
@@ -22,4 +12,4 @@ const App = ({ loadBoard }: any) => {
     </div>;
 }
 
-export default connect(null, { loadBoard })(App);
+export default App;

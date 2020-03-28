@@ -3,17 +3,22 @@ import { connect } from 'react-redux';
 
 import './UnitsContainer.scss';
 import UnitBlock from '../UnitBlock/UnitBlock';
+import Board from '../../models/Board/BoardInstance';
 
-const UnitsContainer = ({ units, curUnit }:any) => {
+const UnitsContainer = ({ units, curUnit }: any) => {
     return (
         <div className='units__container'>
             {units.map((el: any, index: any) => {
                 let team = null;
-                index <= 5 ? team = 1 : team = 2;
+                index <= 5 ? (team = 1) : (team = 2);
                 let currentUnit = null;
                 let currentTarget = null;
-                // curUnit.id === index ? currentUnit = true : currentUnit = false;
-                // curUnit.targets.indexOf(index) !== -1 ? currentTarget = true : currentTarget = false
+                if(curUnit.id === index){
+                    currentUnit = true;
+                }
+                if(Board.getUnits[curUnit.id].targetBehavior.getTargets()?.indexOf(index) !== -1){
+                    currentTarget = true;
+                }
                 return (
                     <UnitBlock
                         key={index}
@@ -23,8 +28,8 @@ const UnitsContainer = ({ units, curUnit }:any) => {
                         name={el.name}
                         hp={el.hp}
                         team={team}
-                        // currentUnit={currentUnit}
-                        // currentTarget={currentTarget}
+                        currentUnit={currentUnit}
+                        currentTarget={currentTarget}
                     />
                 );
             })}
@@ -36,7 +41,7 @@ const mapStateToProps = (state: any) => {
     return {
         units: state.board.board,
         curUnit: state.board.order[0]
-    }
+    };
 };
 
 export default connect(mapStateToProps)(UnitsContainer);
