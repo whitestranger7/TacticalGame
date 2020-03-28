@@ -1,10 +1,10 @@
-import MeleeAttackBehavior from '../../behaviors/actionTypes/meleeAttackBehavior';
+import SingleAttackBehavior from '../../behaviors/actionTypes/singleAttackBehavior';
 import UnitModel from '../UnitModel';
 import MeleeTargetUnit from '../../behaviors/targetsBehavior/MeleeTargetUnit';
 
 export default class MeleeUnit extends UnitModel {
 
-    actionBehavior: MeleeAttackBehavior;
+    actionBehavior: SingleAttackBehavior;
     targetBehavior: MeleeTargetUnit;
 
     constructor(
@@ -16,7 +16,7 @@ export default class MeleeUnit extends UnitModel {
         protected readonly image: string
     ) {
         super(id, name, hp, initiative, image);
-        this.actionBehavior = new MeleeAttackBehavior(damage);
+        this.actionBehavior = new SingleAttackBehavior(damage);
         this.targetBehavior = new MeleeTargetUnit(id);
     }
 };

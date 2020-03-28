@@ -1,4 +1,7 @@
 export default class UnitModel {
+
+    private isDefending: boolean;
+
     constructor(
         protected readonly id: number,
         protected readonly name: string,
@@ -11,6 +14,7 @@ export default class UnitModel {
         this.hp = hp;
         this.initiative = initiative;
         this.image = image;
+        this.isDefending = false;
     }
 
     get getName() {
@@ -27,6 +31,22 @@ export default class UnitModel {
 
     get getHp() {
         return this.hp;
+    }
+
+    get getDefend() {
+        return this.defend;
+    }
+
+    defend(){
+        this.isDefending = true;
+    }
+
+    undoDefend() {
+        this.isDefending = false;
+    }
+
+    healHp(heal: number){
+        return this.hp += heal;
     }
 
     takeDamage(damage: number) {

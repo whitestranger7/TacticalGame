@@ -1,9 +1,12 @@
 import IActionBehavior from '../IActionBehavior';
+import Board from '../../Board/BoardInstance';
 
 export default class ParalyzeBehavior implements IActionBehavior{
 
-    action() {
-        // Choose unit and paralyze him ( delete from order for 1 round )
+    action(unit: number) {
+        const newOrder = Board.getOrder.filter(el => el.getId !== unit);
+        Board.setOrder = newOrder;
+        console.log(`${unit} was paralyzed`);
         return true;
     }
 };

@@ -1,4 +1,4 @@
-import { ACTION, DEFEND } from '../actions/types';
+import { MOVE, ACTION, DEFEND } from '../actions/types';
 import Board from '../../models/Board/BoardInstance';
 
 const initialState = {
@@ -7,16 +7,20 @@ const initialState = {
 };
 
 export default function(state = initialState, action) {
-    const { type } = action;
+    const { type, payload } = action;
 
     switch(type) {
-        case ACTION:
+        case MOVE:
             Board.action();
             return {
                 ...state,
                 order: Board.getOrder
             }
         case DEFEND:
+            Board.getOrder[0].defend();
+            return state;
+        case ACTION:
+            Board.getUnits[payload.currentUnit].actionBehavior.action(payload.target);
             return state;
         default:
             return state;

@@ -1,10 +1,10 @@
 import UnitModel from '../UnitModel';
-import RangeAttackBehavior from '../../behaviors/actionTypes/rangeAttackBehavior';
+import SingleAttackBehavior from '../../behaviors/actionTypes/singleAttackBehavior';
 import RangeTargetUnit from '../../behaviors/targetsBehavior/RangeTargetUnit'
 
 export default class RangeUnit extends UnitModel {
 
-    actionBehavior: RangeAttackBehavior;
+    actionBehavior: SingleAttackBehavior;
     targetBehavior: RangeTargetUnit;
 
     constructor(
@@ -16,7 +16,7 @@ export default class RangeUnit extends UnitModel {
         protected readonly image: string
     ) {
         super(id, name, hp, initiative, image);
-        this.actionBehavior = new RangeAttackBehavior(damage);
+        this.actionBehavior = new SingleAttackBehavior(damage);
         this.targetBehavior = new RangeTargetUnit(id);
     }
 

@@ -1,16 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { doAction } from '../../store/actions/board';
+import { defend } from '../../store/actions/board';
 
 import './PlayerContainer.scss';
 import UnitOrder from './UnitOrder/UnitOrder';
 
-const PlayerContainer = ({ doAction, order }: any) => {
+const PlayerContainer = ({ defend, order }: any) => {
 
     return (
         <div className='player__container'>
             <div className='btn__wrapper'>
-                <button onClick={doAction} >Defend</button>
+                <button onClick={defend}>Defend</button>
             </div>
             <div className='order__container'>
                 {order.map((el: any) => {
@@ -29,4 +29,4 @@ const mapStateToProps = (state: any) => {
     }
 };
 
-export default connect(mapStateToProps, { doAction })(PlayerContainer);
+export default connect(mapStateToProps, { defend })(PlayerContainer);

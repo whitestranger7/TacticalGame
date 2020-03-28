@@ -1,32 +1,44 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import './UnitBlock.scss';
+import { doAction } from '../../store/actions/board';
+import Board from '../../models/Board/BoardInstance';
 
 const UnitBlock = (props: any) => {
-
     let styles = undefined;
-    if(props.team === 1) {        
+    if (props.team === 1) {
         styles = {
             backgroundColor: 'rgb(161, 161, 243)',
             border: '',
             cursor: ''
-        }
-    }else {
+        };
+    } else {
         styles = {
             backgroundColor: 'rgb(203, 228, 92)',
             border: '',
             cursor: ''
-        }
+        };
     }
-    if(props.currentTarget) {
+
+    if (props.currentTarget) {
         styles.border = '8px solid red';
         styles.cursor = 'pointer';
     }
-    if(props.currentUnit) {
+    if (props.currentUnit) {
         styles.border = '8px solid green';
     }
 
     return (
-        <div className='unit__block' style={styles}>
+        <div
+            className='unit__block'
+            style={styles}
+            onClick={
+                props.currentTarget
+                    ? () => props.doAction(Board.getOrder[0].getId, props.index)
+                    : undefined
+            }
+        >
             <div className='unit__info'>
                 <div className='unit__index'>{props.index}</div>
                 <div className='unit__logo'>
@@ -43,4 +55,10 @@ const UnitBlock = (props: any) => {
     );
 };
 
-export default UnitBlock;
+const mapStateToProps = (state: any) => {
+    return {
+        curUnit: state.board.order[0]
+    };
+};
+
+export default connect(mapStateToProps, { doAction })(UnitBlock);

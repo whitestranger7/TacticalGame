@@ -1,4 +1,5 @@
 import IActionBehavior from '../IActionBehavior';
+import Board from '../../Board/BoardInstance';
 
 export default class HealBehavior implements IActionBehavior{
     
@@ -6,8 +7,8 @@ export default class HealBehavior implements IActionBehavior{
         this.healDeal = healDeal;
     };
 
-    action() {
-        // Choose one target and heal hp
-        return true;
+    action(unit: number) {
+        Board.getUnits[unit].healHp(this.healDeal);
+        console.log(`${unit} was healed by ${this.healDeal} hp`);
     }
 };

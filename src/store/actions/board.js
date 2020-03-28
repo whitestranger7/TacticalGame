@@ -1,7 +1,20 @@
-import { ACTION } from './types';
+import { ACTION, DEFEND, MOVE } from './types';
 
-export const doAction = () => dispatch => {
+export const defend = () => dispatch => {
     dispatch({
-        type: ACTION
+        type: DEFEND
+    });
+    dispatch({
+        type: MOVE
+    })
+};
+
+export const doAction = (currentUnit, target) => dispatch => {
+    dispatch({
+        type: ACTION,
+        payload: { currentUnit, target }
+    });
+    dispatch({
+        type: MOVE
     });
 };

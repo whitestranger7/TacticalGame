@@ -1,3 +1,3 @@
 export default interface IActionBehavior {
-    action(): boolean;
+    action(unit: number): void;
 };

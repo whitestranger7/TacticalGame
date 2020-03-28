@@ -8,10 +8,10 @@ import { units } from '../Units/Units';
 type unitTypes = MeleeUnit | RangeUnit | MagicUnit | HealUnit | ParalyzeUnit;
 
 export default class Board {
-    team1: unitTypes[];
-    team2: unitTypes[];
-    order: unitTypes[];
-    units: unitTypes[];
+    private team1: unitTypes[];
+    private team2: unitTypes[];
+    private order: unitTypes[];
+    private units: unitTypes[];
 
     constructor(
         private readonly rows: number,
@@ -60,6 +60,10 @@ export default class Board {
         return this.order;
     }
 
+    set setOrder(newOrder: unitTypes[]){
+        this.order = newOrder;
+    }
+
     get getUnits() {
         return this.units;
     }
@@ -77,9 +81,14 @@ export default class Board {
                     if (unit.getHp <= 0) {
                         return false;
                     }
+                    unit.undoDefend();
                     return true;
                 });
         }
+    }
+
+    unitHealHp(unitIndex: number, heal: number) {
+        this.units[unitIndex].healHp(heal);
     }
 
     unitTakeDamage(unitIndex: number, damage: number) {
