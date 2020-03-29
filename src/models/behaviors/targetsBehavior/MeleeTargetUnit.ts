@@ -7,25 +7,89 @@ export default class MeleeTargetUnit implements ITargetBehavior {
     };
 
     getTargets() {
-        const start = Board.getCols * (Board.getRows / 2) - (Board.getCols);
-        const end = start + (Board.getCols * 2) - 1;
+        //Constants
+        const cols = Board.getCols;
+        const rows = Board.getRows;
+        const start = cols * (rows / 2) - (cols);
+        const end = start + (cols * 2) - 1;
+        
+        // If target alive => add it to the targets
+        const checkTargetAlive = (targets: number[], ids: number[]) => {
+            for(let i of ids){
+                if(Board.getUnits[i].getAliveStatus){
+                    targets.push(i)
+                }
+            }
+        }
+
+        //only in 2 centered rows units can damage
         if(this.id >= start && this.id <= end){
-            if(this.id <= (start + Board.getCols - 1)){
+            //1st team first line
+            if(this.id <= (start + cols - 1)){
+                let targets: number[] = [];
                 if(this.id === start) {
-                    return [this.id+Board.getCols, this.id+Board.getCols+1];
+                    checkTargetAlive(targets, [this.id+cols, this.id+cols+1]);
+                    if(targets.length === 0) {
+                        checkTargetAlive(targets, [this.id+cols+2]);
+                    }
+                    if(targets.length === 0) {
+                        let newTargets: number[] = [];
+                        for(let i = this.id+(cols*2); i <= this.id+(cols*3)-1; i++){
+                            newTargets.push(i);
+                        }
+                        checkTargetAlive(targets, newTargets);
+                    }
+                    return targets;
                 }
-                if(this.id === (start + Board.getCols - 1)) {
-                    return [this.id+Board.getCols-1, this.id+Board.getCols];
+                if(this.id === (start + cols - 1)) {
+                    checkTargetAlive(targets, [this.id+cols-1, this.id+cols]);
+                    if(targets.length === 0) {
+                        checkTargetAlive(targets, [this.id+cols-2]);
+                    }
+                    if(targets.length === 0) {
+                        let newTargets: number[] = [];
+                        for(let i = this.id+cols+1; i <= this.id+(cols*2); i++){
+                            newTargets.push(i);
+                        }
+                        checkTargetAlive(targets, newTargets);
+                    }
+                    return targets;
                 }
-                return [this.id+Board.getCols-1, this.id+Board.getCols, this.id+Board.getCols+1];
+                checkTargetAlive(targets, [this.id+cols-1, this.id+cols, this.id+cols+1])
+                return targets;
+            //2nd steam first line
             }else {
+                let targets: number[] = [];
+                if(this.id === (end-cols+1)) {
+                    checkTargetAlive(targets, [this.id-cols, this.id-cols+1]);
+                    if(targets.length === 0) {
+                        checkTargetAlive(targets, [this.id-cols+2]);
+                    }
+                    if(targets.length === 0) {
+                        let newTargets: number[] = [];
+                        for(let i = this.id-(cols*2); i <= this.id-cols-1; i++){
+                            newTargets.push(i);
+                        }
+                        checkTargetAlive(targets, newTargets);
+                    }
+                    return targets;
+                }
                 if(this.id === end){
-                    return [this.id-Board.getCols-1, this.id-Board.getCols];
+                    checkTargetAlive(targets, [this.id-cols-1, this.id-cols]);
+                    if(targets.length === 0) {
+                        checkTargetAlive(targets, [this.id-cols-2])
+                    }
+                    if(targets.length === 0) {
+                        let newTargets: number[] = [];
+                        for(let i = this.id-(cols*3)+1; i <= this.id-(cols*2); i++){
+                            newTargets.push(i);
+                        }
+                        checkTargetAlive(targets, newTargets);
+                    }
+                    return targets;
                 }
-                if(this.id === (end-Board.getCols+1)) {
-                    return [this.id-Board.getCols, this.id-Board.getCols+1];
-                }
-                return [this.id-Board.getCols-1, this.id-Board.getCols, this.id-Board.getCols+1];
+                checkTargetAlive(targets, [this.id-cols-1, this.id-cols, this.id-cols+1]);
+                return targets;
             }
         }
         return [];

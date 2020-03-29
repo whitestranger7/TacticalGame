@@ -1,20 +1,26 @@
 export default class UnitModel {
 
+    private hp: number;
+    private alive: boolean;
     private isDefending: boolean;
+    private isParalyzed: boolean;
 
     constructor(
         protected readonly id: number,
         protected readonly name: string,
-        protected hp: number,
+        protected maxHp: number,
         protected readonly initiative: number,
         protected readonly image: string
     ) {
         this.id = id;
         this.name = name;
-        this.hp = hp;
+        this.maxHp = maxHp;
+        this.hp = maxHp;
         this.initiative = initiative;
         this.image = image;
+        this.alive = true;
         this.isDefending = false;
+        this.isParalyzed = false;
     }
 
     get getName() {
@@ -33,8 +39,34 @@ export default class UnitModel {
         return this.hp;
     }
 
+    get getMaxHp() {
+        return this.maxHp
+    }
+
     get getDefend() {
         return this.defend;
+    }
+
+    get getAliveStatus() {
+        return this.alive;
+    }
+
+    get getParalyzedStatus() {
+        return this.isParalyzed;
+    }
+
+    private checkIsAlive() {
+        if(this.hp <= 0){
+            this.alive = false;
+        }
+    }
+
+    paralyze(){
+        this.isParalyzed = true;
+    }
+
+    undoParalyze() {
+        this.isParalyzed = false;
     }
 
     defend(){
@@ -46,7 +78,10 @@ export default class UnitModel {
     }
 
     healHp(heal: number){
-        return this.hp += heal;
+        this.hp += heal;
+        if(this.hp > this.maxHp) {
+            this.hp = this.maxHp;
+        }
     }
 
     takeDamage(damage: number) {
@@ -55,5 +90,6 @@ export default class UnitModel {
         }else {
             this.hp -= damage;
         }
+        this.checkIsAlive();
     }
 };

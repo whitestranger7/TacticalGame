@@ -10,12 +10,12 @@ export default class HealUnit extends UnitModel {
     constructor(
         protected readonly id: number,
         protected readonly name: string,
-        protected hp: number,
+        protected maxHp: number,
         protected readonly heal: number,
         protected readonly initiative: number,
         protected readonly image: string
     ) {
-        super(id, name, hp, initiative, image);
+        super(id, name, maxHp, initiative, image);
         this.actionBehavior = new HealBehavior(heal);
         this.targetBehavior = new HealTargetUnit(id);
     }

@@ -12,6 +12,7 @@ export default class Board {
     private team2: unitTypes[];
     private order: unitTypes[];
     private units: unitTypes[];
+    private winner: 1 | 2 | null;
 
     constructor(
         private readonly rows: number,
@@ -42,6 +43,7 @@ export default class Board {
                 }
                 return true;
             });
+        this.winner = null;
     }
 
     get getSize() {
@@ -59,16 +61,31 @@ export default class Board {
     get getOrder() {
         return this.order;
     }
+    
+    get getUnits() {
+        return this.units;
+    }
+
+    get getWinner() {
+        return this.winner;
+    }
 
     set setOrder(newOrder: unitTypes[]) {
         this.order = newOrder;
     }
 
-    get getUnits() {
-        return this.units;
+    private checkWinner() {
+        if(this.team1.filter(unit => !unit.getAliveStatus).length === 6) {
+            this.winner = 2;
+        }
+        if(this.team2.filter(unit => !unit.getAliveStatus).length === 6){
+            this.winner = 1;
+        }
+        return null;
     }
 
     action() {
+        this.checkWinner();
         this.order = this.order.slice(1, this.order.length).filter(unit => {
             if (unit.getHp <= 0) {
                 return false;
@@ -90,6 +107,10 @@ export default class Board {
                     unit.undoDefend();
                     return true;
                 });
+        }
+        if(this.order[0].getParalyzedStatus) {
+            this.order[0].undoParalyze();
+            this.action();
         }
     }
 

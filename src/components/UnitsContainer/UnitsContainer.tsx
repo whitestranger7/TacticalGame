@@ -30,6 +30,7 @@ const UnitsContainer = ({ units, curUnit }: any) => {
                         team={team}
                         currentUnit={currentUnit}
                         currentTarget={currentTarget}
+                        alive={el.getAliveStatus}
                     />
                 );
             })}

@@ -10,12 +10,12 @@ export default class MeleeUnit extends UnitModel {
     constructor(
         protected readonly id: number,
         protected readonly name: string,
-        protected hp: number,
+        protected maxHh: number,
         protected readonly damage: number,
         protected readonly initiative: number,
         protected readonly image: string
     ) {
-        super(id, name, hp, initiative, image);
+        super(id, name, maxHh, initiative, image);
         this.actionBehavior = new SingleAttackBehavior(damage);
         this.targetBehavior = new MeleeTargetUnit(id);
     }

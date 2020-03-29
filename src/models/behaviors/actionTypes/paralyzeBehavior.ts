@@ -4,8 +4,7 @@ import Board from '../../Board/BoardInstance';
 export default class ParalyzeBehavior implements IActionBehavior{
 
     action(unit: number) {
-        const newOrder = Board.getOrder.filter(el => el.getId !== unit);
-        Board.setOrder = newOrder;
+        Board.getUnits[unit].paralyze();
         console.log(`${unit} was paralyzed`);
         return true;
     }

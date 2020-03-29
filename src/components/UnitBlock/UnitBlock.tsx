@@ -30,7 +30,7 @@ const UnitBlock = (props: any) => {
     }
 
     let block = null;
-    if (props.hp > 0) {
+    if (props.alive) {
         block = (
             <div
                 className='unit__block'
@@ -61,7 +61,7 @@ const UnitBlock = (props: any) => {
         );
     } else {
         block = (
-            <div className='unit__block'>
+            <div className='unit__block' style={{backgroundColor: styles.backgroundColor}}>
                 <div className='unit__info'>
                     <div className='unit__index'>{props.index}</div>
                     <div className='unit__logo'>
