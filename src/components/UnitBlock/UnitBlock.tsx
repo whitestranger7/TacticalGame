@@ -29,30 +29,58 @@ const UnitBlock = (props: any) => {
         styles.border = '8px solid green';
     }
 
-    return (
-        <div
-            className='unit__block'
-            style={styles}
-            onClick={
-                props.currentTarget
-                    ? () => props.doAction(Board.getOrder[0].getId, props.index)
-                    : undefined
-            }
-        >
-            <div className='unit__info'>
-                <div className='unit__index'>{props.index}</div>
-                <div className='unit__logo'>
-                    <img src={props.img} alt={props.alt} />
+    let block = null;
+    if (props.hp > 0) {
+        block = (
+            <div
+                className='unit__block'
+                style={styles}
+                onClick={
+                    props.currentTarget
+                        ? () =>
+                              props.doAction(
+                                  Board.getOrder[0].getId,
+                                  props.index
+                              )
+                        : undefined
+                }
+            >
+                <div className='unit__info'>
+                    <div className='unit__index'>{props.index}</div>
+                    <div className='unit__logo'>
+                        <img src={props.img} alt={props.alt} />
+                    </div>
+                </div>
+                <div className='unit__type'>
+                    <h4>{props.name.toUpperCase()}</h4>
+                </div>
+                <div className='unit__hp'>
+                    <h4>HP: {props.hp}</h4>
                 </div>
             </div>
-            <div className='unit__type'>
-                <h4>{props.name.toUpperCase()}</h4>
+        );
+    } else {
+        block = (
+            <div className='unit__block'>
+                <div className='unit__info'>
+                    <div className='unit__index'>{props.index}</div>
+                    <div className='unit__logo'>
+                        <img
+                            src={
+                                'https://cdn.newsapi.com.au/image/v1/efafa67ad4396fceeb80a7513bd49a03?width=1024'
+                            }
+                            alt={'dead'}
+                        />
+                    </div>
+                </div>
+                <div className='unit__type'>
+                    <h4>{'DEAD'}</h4>
+                </div>
             </div>
-            <div className='unit__hp'>
-                <h4>HP: {props.hp}</h4>
-            </div>
-        </div>
-    );
+        );
+    }
+
+    return block;
 };
 
 const mapStateToProps = (state: any) => {

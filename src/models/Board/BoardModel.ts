@@ -60,7 +60,7 @@ export default class Board {
         return this.order;
     }
 
-    set setOrder(newOrder: unitTypes[]){
+    set setOrder(newOrder: unitTypes[]) {
         this.order = newOrder;
     }
 
@@ -69,7 +69,13 @@ export default class Board {
     }
 
     action() {
-        this.order = this.order.slice(1, this.order.length);
+        this.order = this.order.slice(1, this.order.length).filter(unit => {
+            if (unit.getHp <= 0) {
+                return false;
+            }
+            unit.undoDefend();
+            return true;
+        });
         if (this.order.length === 0) {
             this.order = Array.from(this.units)
                 .sort((unit1, unit2) => {

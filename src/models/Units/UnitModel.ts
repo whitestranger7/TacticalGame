@@ -50,6 +50,10 @@ export default class UnitModel {
     }
 
     takeDamage(damage: number) {
-        return this.hp -= damage;
+        if(this.isDefending){
+            this.hp -= damage / 2;
+        }else {
+            this.hp -= damage;
+        }
     }
 };

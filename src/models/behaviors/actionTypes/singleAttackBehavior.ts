@@ -7,8 +7,9 @@ export default class MeleeAttackBehavior implements IActionBehavior {
         this.damage = damage;
     }
 
-    action(unit: number) {
-        Board.getUnits[unit].takeDamage(this.damage);
-        console.log(`${unit} got ${this.damage} damage`);
+    action(unitIndex: number) {
+        const currentUnit = Board.getUnits[unitIndex];
+        currentUnit.takeDamage(this.damage);
+        console.log(`${unitIndex} got ${this.damage} damage`);
     };
 };
