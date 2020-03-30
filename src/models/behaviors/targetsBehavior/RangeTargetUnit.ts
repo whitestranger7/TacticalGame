@@ -1,4 +1,4 @@
-import ITargetBehavior from "../ITargetBehavior";
+import ITargetBehavior from "./ITargetBehavior";
 import { checkTargetAlive } from './selectFunctions';
 import Board from '../../Board/BoardInstance';
 

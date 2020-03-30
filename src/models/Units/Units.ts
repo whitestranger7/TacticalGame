@@ -11,7 +11,7 @@ const Skeleton = (id: number) => {
         100,
         25,
         50,
-        'https://media.istockphoto.com/vectors/cartoon-skeleton-pointing-sign-vector-id928810044'
+        'https://cdn3.iconfinder.com/data/icons/evil-fantasy-characters-from-medieval/238/fantasy-character-evil-dark-002-512.png'
     );
 };
 
@@ -22,7 +22,7 @@ const Centaur = (id: number) => {
         150,
         50,
         50,
-        'https://previews.123rf.com/images/krisdog/krisdog1801/krisdog180100234/93547278-sagittarius-centaur-sign.jpg'
+        'https://image.flaticon.com/icons/svg/1716/1716047.svg'
     );
 };
 
@@ -33,7 +33,7 @@ const Bandit = (id: number) => {
         45,
         30,
         60,
-        'https://cdn.personage.ua/images/thumbnails/950/950/detailed/1/banditskaya-maska-chernaya-16810.jpg'
+        'https://cdn2.iconfinder.com/data/icons/bad-boys/512/bandit_1-512.png'
     );
 };
 
@@ -44,7 +44,7 @@ const ElfArcher = (id: number) => {
         90,
         40,
         60,
-        'https://www.brickizimo-toys.com/3406-large_default/mirkwood-elf-.jpg'
+        'https://cdn3.iconfinder.com/data/icons/christmas-related-set-5-filled/64/Christmas-16-512.png'
     );
 };
 
@@ -55,7 +55,7 @@ const SkeletonMage = (id: number) => {
         50,
         20,
         40,
-        'https://ih1.redbubble.net/image.781346913.5216/flat,1000x1000,075,f.jpg'
+        'https://cdn3.iconfinder.com/data/icons/evil-fantasy-characters-from-medieval/240/fantasy-character-evil-dark-013-512.png'
     );
 };
 
@@ -66,7 +66,7 @@ const Archimage = (id: number) => {
         90,
         40,
         40,
-        'https://c7.uihere.com/files/992/321/174/magic-sticker-issou-archimage-dumbledor-thumb.jpg'
+        'https://cdn1.iconfinder.com/data/icons/game-components-icostory-black-and-white/64/character-game-wizard-mage-512.png'
     );
 };
 
@@ -77,7 +77,7 @@ const Monk = (id: number) => {
         70,
         40,
         20,
-        'https://previews.123rf.com/images/sudowoodo/sudowoodo1708/sudowoodo170800032/84445531-buddhist-monk-in-orange-robes-sitting-in-meditation-cute-cartoon-tibetan-monk-meditating-vector-illu.jpg'
+        'https://cdn2.iconfinder.com/data/icons/spiritual-2/64/Spiritual20-512.png'
     );
 };
 
@@ -87,7 +87,7 @@ const Sirena = (id: number) => {
         'Sirena',
         80,
         20,
-        'https://vignette.wikia.nocookie.net/defenseoftheancients/images/8/84/Naga_Siren.gif/revision/latest/top-crop/width/360/height/450?cb=20110819195002'
+        'https://image.flaticon.com/icons/png/512/571/571050.png'
     );
 };
 

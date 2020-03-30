@@ -22,11 +22,11 @@ const UnitBlock = (props: any) => {
     }
 
     if (props.currentTarget) {
-        styles.border = '8px solid red';
+        styles.border = '5px solid red';
         styles.cursor = 'pointer';
     }
     if (props.currentUnit) {
-        styles.border = '8px solid green';
+        styles.border = '5px solid green';
     }
 
     let block = null;

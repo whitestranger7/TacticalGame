@@ -1,4 +1,4 @@
-import IActionBehavior from '../IActionBehavior';
+import IActionBehavior from './IActionBehavior';
 import Board from '../../Board/BoardInstance';
 
 export default class MeleeAttackBehavior implements IActionBehavior {
