@@ -1,4 +1,5 @@
 import ITargetBehavior from "../ITargetBehavior";
+import { checkTargetAlive } from './selectFunctions';
 import Board from "../../Board/BoardInstance";
 
 export default class MeleeTargetUnit implements ITargetBehavior {
@@ -12,15 +13,6 @@ export default class MeleeTargetUnit implements ITargetBehavior {
         const rows = Board.getRows;
         const start = cols * (rows / 2) - (cols);
         const end = start + (cols * 2) - 1;
-        
-        // If target alive => add it to the targets
-        const checkTargetAlive = (targets: number[], ids: number[]) => {
-            for(let i of ids){
-                if(Board.getUnits[i].getAliveStatus){
-                    targets.push(i)
-                }
-            }
-        }
 
         //only in 2 centered rows units can damage
         if(this.id >= start && this.id <= end){
@@ -56,6 +48,9 @@ export default class MeleeTargetUnit implements ITargetBehavior {
                     return targets;
                 }
                 checkTargetAlive(targets, [this.id+cols-1, this.id+cols, this.id+cols+1])
+                if(targets.length === 0) {
+                    checkTargetAlive(targets, [this.id+(cols*2)-1, this.id+(cols*2), this.id+(cols*2)+1])
+                }
                 return targets;
             //2nd steam first line
             }else {
@@ -89,6 +84,9 @@ export default class MeleeTargetUnit implements ITargetBehavior {
                     return targets;
                 }
                 checkTargetAlive(targets, [this.id-cols-1, this.id-cols, this.id-cols+1]);
+                if(targets.length === 0) {
+                    checkTargetAlive(targets, [this.id-(cols*2)-1, this.id-(cols*2), this.id-(cols*2)+1])
+                }
                 return targets;
             }
         }

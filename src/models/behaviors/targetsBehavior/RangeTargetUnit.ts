@@ -1,4 +1,5 @@
 import ITargetBehavior from "../ITargetBehavior";
+import { checkTargetAlive } from './selectFunctions';
 import Board from '../../Board/BoardInstance';
 
 export default class RangeTargetUnit implements ITargetBehavior {
@@ -7,16 +8,15 @@ export default class RangeTargetUnit implements ITargetBehavior {
     };
 
     getTargets() {
+        let targets: number[] = [];
         if(this.id < Board.getSize / 2) {
-            let targets = [];
             for(let i = (Board.getSize / 2); i < Board.getSize; i++){
-                targets.push(i);
+                checkTargetAlive(targets, [i]);
             }
             return targets;
         }
-        let targets = [];
         for(let i = 0; i < Board.getSize / 2; i++) {
-            targets.push(i);
+            checkTargetAlive(targets, [i]);
         }
         return targets;
     }

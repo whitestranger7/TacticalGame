@@ -1,5 +1,4 @@
 import React from 'react';
-import Board from './models/Board/BoardInstance';
 
 import PlayerContainer from './components/PlayerContainer/PlayerContainer';
 import UnitsContainer from './components/UnitsContainer/UnitsContainer';
