@@ -2,12 +2,12 @@ import { MOVE, ACTION, DEFEND } from '../actions/types';
 import Board from '../../models/Board/BoardInstance';
 
 const initialState = {
-    board: Board.units,
-    order: Board.order,
+    board: Board.getUnits,
+    order: Board.getOrder,
     winner: Board.getWinner
 };
 
-export default function(state = initialState, action) {
+export default function(state = initialState, action: any) {
     const { type, payload } = action;
 
     switch(type) {
