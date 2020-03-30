@@ -1,11 +1,11 @@
 import UnitModel from '../UnitModel';
 import ParalyzeBehavior from '../../behaviors/actionTypes/paralyzeBehavior';
-import RangeUnitTarget from '../../behaviors/targetsBehavior/RangeTargetUnit';
+import ParalyzeUnitTarget from '../../behaviors/targetsBehavior/ParalyzeTargetUnit';
 
 export default class ParalyzeUnit extends UnitModel {
 
     actionBehavior: ParalyzeBehavior;
-    targetBehavior: RangeUnitTarget;
+    targetBehavior: ParalyzeUnitTarget;
 
     constructor(
         protected readonly id: number,
@@ -16,6 +16,6 @@ export default class ParalyzeUnit extends UnitModel {
     ) {
         super(id, name, maxHh, initiative, image);
         this.actionBehavior = new ParalyzeBehavior();
-        this.targetBehavior = new RangeUnitTarget(id);
+        this.targetBehavior = new ParalyzeUnitTarget(id);
     }
 };
