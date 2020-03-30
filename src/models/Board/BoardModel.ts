@@ -3,9 +3,19 @@ import RangeUnit from '../Units/UnitTypes/RangeUnit';
 import MagicUnit from '../Units/UnitTypes/MagicUnit';
 import HealUnit from '../Units/UnitTypes/HealUnit';
 import ParalyzeUnit from '../Units/UnitTypes/ParalyzeUnit';
-import { units } from '../Units/Units';
+
+import { Skeleton } from '../Units/units/Skeleton';
+import { Centaur } from '../Units/units/Centaur';
+import { Bandit } from '../Units/units/Bandit';
+import { ElfArcher } from '../Units/units/ElfArcher';
+import { SkeletonMage } from '../Units/units/SkeletonMage';
+import { Archimage } from '../Units/units/Archimage';
+import { Monk } from '../Units/units/Monk';
+import { Sirena } from '../Units/units/Sirena';
 
 type unitTypes = MeleeUnit | RangeUnit | MagicUnit | HealUnit | ParalyzeUnit;
+
+const availableUnits = [Skeleton, Centaur, Bandit, ElfArcher, SkeletonMage, Archimage, Monk, Sirena];
 
 export default class Board {
     private team1: unitTypes[];
@@ -22,7 +32,7 @@ export default class Board {
         this.columns = columns;
         this.units = [];
         for (let i = 0; i < this.rows * this.columns; i++) {
-            this.units.push(units[Math.floor(Math.random() * units.length)](i));
+            this.units.push(availableUnits[Math.floor(Math.random() * availableUnits.length)](i));
         }
         this.team1 = Array.from(this.units).slice(
             0,
