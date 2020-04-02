@@ -16,7 +16,7 @@ const UnitsContainer = ({ units, curUnit }: any) => {
                 if(curUnit.id === index){
                     currentUnit = true;
                 }
-                if(Board.getUnits[curUnit.id].targetBehavior.getTargets()?.indexOf(index) !== -1){
+                if(Board.getUnits[curUnit.id].targetBehavior.getTargets(Board)?.indexOf(index) !== -1){
                     currentTarget = true;
                 }
                 return (

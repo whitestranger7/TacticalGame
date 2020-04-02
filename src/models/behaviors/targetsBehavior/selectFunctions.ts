@@ -1,6 +1,6 @@
-import Board from '../../Board/BoardInstance';
+import BoardModel from '../../Board/BoardModel';
 
-export const checkTargetAlive = (targets: number[], ids: number[]) => {
+export const checkTargetAlive = (Board: BoardModel, targets: number[], ids: number[]) => {
     for(let i of ids){
         if(Board.getUnits[i].getAliveStatus){
             targets.push(i)
