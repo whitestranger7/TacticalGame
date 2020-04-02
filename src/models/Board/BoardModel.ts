@@ -80,18 +80,25 @@ export default class Board {
         return this.winner;
     }
 
+    get getTeam1() {
+        return this.team1;
+    }
+
+    get getTeam2() {
+        return this.team2;
+    }
+
     set setOrder(newOrder: unitTypes[]) {
         this.order = newOrder;
     }
 
-    private checkWinner() {
-        if(this.team1.filter(unit => !unit.getAliveStatus).length === 6) {
+    public checkWinner() {
+        if(this.team1.filter(unit => !unit.getAliveStatus).length === this.getSize / 2) {
             this.winner = 2;
         }
-        if(this.team2.filter(unit => !unit.getAliveStatus).length === 6){
+        if(this.team2.filter(unit => !unit.getAliveStatus).length === this.getSize / 2){
             this.winner = 1;
         }
-        return null;
     }
 
     action() {
