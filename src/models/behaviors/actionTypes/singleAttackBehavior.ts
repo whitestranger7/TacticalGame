@@ -1,5 +1,5 @@
 import IActionBehavior from './IActionBehavior';
-import Board from '../../Board/BoardInstance';
+import BoardModel from '../../Board/BoardModel';
 
 export default class MeleeAttackBehavior implements IActionBehavior {
     
@@ -7,9 +7,8 @@ export default class MeleeAttackBehavior implements IActionBehavior {
         this.damage = damage;
     }
 
-    action(unitIndex: number) {
+    action(unitIndex: number, Board: BoardModel) {
         const currentUnit = Board.getUnits[unitIndex];
         currentUnit.takeDamage(this.damage);
-        console.log(`${unitIndex} got ${this.damage} damage`);
     };
 };

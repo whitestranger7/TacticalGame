@@ -58,6 +58,8 @@ export default class UnitModel {
     private checkIsAlive() {
         if(this.hp <= 0){
             this.alive = false;
+        }else {
+            this.alive = true;
         }
     }
 
@@ -82,6 +84,7 @@ export default class UnitModel {
         if(this.hp > this.maxHp) {
             this.hp = this.maxHp;
         }
+        this.checkIsAlive();
     }
 
     takeDamage(damage: number) {

@@ -1,11 +1,10 @@
 import IActionBehavior from './IActionBehavior';
-import Board from '../../Board/BoardInstance';
+import BoardModel from '../../Board/BoardModel';
 
 export default class ParalyzeBehavior implements IActionBehavior{
 
-    action(unit: number) {
+    action(unit: number, Board: BoardModel) {
         Board.getUnits[unit].paralyze();
-        console.log(`${unit} was paralyzed`);
         return true;
     }
 };

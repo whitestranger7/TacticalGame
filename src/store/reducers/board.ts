@@ -26,7 +26,7 @@ export default function(state = initialState, action: any) {
             Board.getOrder[0].defend();
             return state;
         case ACTION:
-            Board.getUnits[payload.currentUnit].actionBehavior.action(payload.target);
+            Board.getUnits[payload.currentUnit].actionBehavior.action(payload.target, Board);
             return state;
         default:
             return state;

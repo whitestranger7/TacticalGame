@@ -1,5 +1,5 @@
 import IActionBehavior from './IActionBehavior';
-import Board from '../../Board/BoardInstance';
+import BoardModel from '../../Board/BoardModel';
 
 export default class SplashAttackBehavior implements IActionBehavior {
     
@@ -7,7 +7,7 @@ export default class SplashAttackBehavior implements IActionBehavior {
         this.damage = damage;
     }
 
-    action(unitIndex: number){
+    action(unitIndex: number, Board: BoardModel){
         if(unitIndex < Board.getSize / 2){
             for(let i = 0; i < Board.getSize / 2; i++){
                 Board.getUnits[i].takeDamage(this.damage);
@@ -17,6 +17,5 @@ export default class SplashAttackBehavior implements IActionBehavior {
                 Board.getUnits[i].takeDamage(this.damage);
             }
         }
-        console.log(`${unitIndex} team splash`)
     }
 };
